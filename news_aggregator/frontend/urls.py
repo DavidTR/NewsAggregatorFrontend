@@ -5,6 +5,9 @@
 
 """
 from django.urls import path
+
+# This weird import expression is the only way I found to make "manage.py makemigrations" not freak out about not
+# finding the file.
 from . import views
 
 urlpatterns = [
