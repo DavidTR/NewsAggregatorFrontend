@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Pycharm
+.idea/*
+
+# Ignore dynaconf secret TOML file
+secrets.toml

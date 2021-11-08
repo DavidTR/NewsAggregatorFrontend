@@ -19,4 +19,3 @@ class SignupForm(Form):
     surname = CharField(min_length=3, max_length=50)
     email = CharField(min_length=6, max_length=25)
     password = CharField(min_length=8, max_length=25, widget=PasswordInput)
-

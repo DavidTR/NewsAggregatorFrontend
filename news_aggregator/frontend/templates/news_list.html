@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block page_title %}RSS News{% endblock page_title %}
+
+{% block content %}
+    <div class="container pt-3">
+        <form method="POST" action="{% url 'news_list' %}">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Refresh</button>
+        </form>
+    </div>
+
+<!--
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+-->
+
+    {% for rss_new in rss_news.data %}
+            {% if rss_new.data.rss.channel.image.url %}
+                <a href="{{ rss_new.url }}"><img src="{{ rss_new.data.rss.channel.image.url }}"/></a>
+            {% else %}
+                <a href="{{ rss_new.url }}">{{ rss_new.data.rss.channel.title }}</a>
+            {% endif %}
+        {% for item in rss_new.data.rss.channel.item %}
+            <div class="news_container">
+                <a href="{{ item.link }}"><p class="news_title"><em>{{ item.title }}</em></p></a>
+                <p class="news_publication_date">{{ item.pubDate }}</p>
+                <div class="news_body">
+                    {{ item.description|safe }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}

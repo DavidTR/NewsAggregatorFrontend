@@ -1,0 +1,5 @@
+[backend]
+
+host_base_url = "http://127.0.0.1:7000/"
+
+current_version = "v01"

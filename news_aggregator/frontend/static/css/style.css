@@ -1,0 +1,23 @@
+body {
+    margin: auto 5% auto 5%;
+    padding: 2%;
+    background-color: #333;
+}
+
+.news_title {
+    font-size: 1.25em;
+    margin-bottom: 0;
+}
+
+.news_body {
+    margin-left: 2%;
+    margin-bottom: 1%;
+    padding: 1%;
+    background-color: rgb(14, 48, 65);
+    border: 1px solid rgb(22, 90, 104);
+    border-radius: 5px;
+}
+
+.news_publication_date {
+    font-size: 0.7em;
+}
